@@ -4,7 +4,7 @@ services:
     image: nginx:latest
     volumes:
       # srcはphp側で管理
-      #- ./html:/var/www/html/ php側で管理
+      - ./html:/var/www/html/ # どちらのコンテナにも書いておかないと、css,js,htmlが読み込めない
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf # localhostがconflictするのでゲスト側のdefault.confを書き換えるようにする。
     ports: 
       - "8081:80"
